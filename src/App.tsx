@@ -18,6 +18,7 @@ import { RiskFactorsSection } from './components/RiskFactorsSection';
 import { FloatingAudioBar } from './components/FloatingAudioBar';
 import { AuthOnboardingModal } from './components/AuthOnboardingModal';
 import { UserProfileModal } from './components/UserProfileModal';
+import { LegalTermsModal, LegalTabType } from './components/LegalTermsModal';
 
 const DEFAULT_LOGS: PalpationLog[] = [
   {
@@ -47,7 +48,13 @@ export default function App() {
   const [selectedCenter, setSelectedCenter] = useState<HealthCenter | null>(null);
   const [isLogModalOpen, setIsLogModalOpen] = useState(false);
   const [isGuideModalOpen, setIsGuideModalOpen] = useState(false);
- 
+  const [isLegalModalOpen, setIsLegalModalOpen] = useState(false);
+const [legalModalTab, setLegalModalTab] = useState<LegalTabType>('confidentialite');
+
+const handleOpenLegalModal = (tab: LegalTabType = 'confidentialite') => {
+  setLegalModalTab(tab);
+  setIsLegalModalOpen(true);
+};
 
   // User Profile & Authentication State (local offline storage)
   const [userProfile, setUserProfile] = useState<UserProfile | null>(() => {
@@ -301,7 +308,7 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <Footer />
+      <Footer onOpenLegalModal={handleOpenLegalModal} />
 
       {/* Modals */}
       <CenterDetailsModal
@@ -346,7 +353,12 @@ export default function App() {
       {/* Floating Audio Bar for non-readers and voice guidance */}
       <FloatingAudioBar />
 
-      {/* AnOnTché Conseil AI Chatbot */}
+      <LegalTermsModal
+  isOpen={isLegalModalOpen}
+  onClose={() => setIsLegalModalOpen(false)}
+  initialTab={legalModalTab}
+  onClearAllData={handleResetAllData}
+/>
       
     </div>
   );
