@@ -18,7 +18,6 @@ import { RiskFactorsSection } from './components/RiskFactorsSection';
 import { FloatingAudioBar } from './components/FloatingAudioBar';
 import { AuthOnboardingModal } from './components/AuthOnboardingModal';
 import { UserProfileModal } from './components/UserProfileModal';
-import { BreastHealthChatbot } from './components/BreastHealthChatbot';
 
 const DEFAULT_LOGS: PalpationLog[] = [
   {
@@ -48,7 +47,7 @@ export default function App() {
   const [selectedCenter, setSelectedCenter] = useState<HealthCenter | null>(null);
   const [isLogModalOpen, setIsLogModalOpen] = useState(false);
   const [isGuideModalOpen, setIsGuideModalOpen] = useState(false);
-  const [isChatbotOpen, setIsChatbotOpen] = useState(false);
+ 
 
   // User Profile & Authentication State (local offline storage)
   const [userProfile, setUserProfile] = useState<UserProfile | null>(() => {
@@ -209,7 +208,7 @@ export default function App() {
         onOpenAuthModal={() => setIsAuthModalOpen(true)}
         onOpenProfileModal={() => setIsProfileModalOpen(true)}
         onLockNow={userProfile?.isAuthenticated && !userProfile.isLocked ? handleQuickLock : undefined}
-        onOpenChatbot={() => setIsChatbotOpen(true)}
+       
       />
 
       {/* Main Content Views */}
@@ -220,7 +219,7 @@ export default function App() {
             <HeroSection
               onCalculateClick={handleScrollToCalculator}
               onLearnGesturesClick={handleLearnGestures}
-              onOpenChatbot={() => setIsChatbotOpen(true)}
+              
             />
 
             <CycleCalculatorSection
@@ -348,11 +347,7 @@ export default function App() {
       <FloatingAudioBar />
 
       {/* AnOnTché Conseil AI Chatbot */}
-      <BreastHealthChatbot
-        isOpen={isChatbotOpen}
-        onOpen={() => setIsChatbotOpen(true)}
-        onClose={() => setIsChatbotOpen(false)}
-      />
+      
     </div>
   );
 }

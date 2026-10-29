@@ -1,12 +1,11 @@
 import React from 'react';
-import { Lock, WifiOff, ArrowRight, Sparkles, HandMetal, Bot } from 'lucide-react';
+import { Lock, WifiOff, ArrowRight, Sparkles, HandMetal } from 'lucide-react';
 import { AnOnTcheText } from './BreastOIcon';
 import { AudioPlayButton } from './AudioPlayButton';
 
 interface HeroSectionProps {
   onCalculateClick: () => void;
   onLearnGesturesClick: () => void;
-  onOpenChatbot?: () => void;
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({
@@ -68,15 +67,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <span>Apprendre les gestes</span>
             </button>
 
-            {onOpenChatbot && (
-              <button
-                onClick={onOpenChatbot}
-                className="px-5 py-3.5 rounded-full bg-gradient-to-r from-[#ffd9e0] to-[#fce7f3] hover:from-[#fbcfe8] hover:to-[#f9a8d4] text-[#8f0341] border border-[#fecdd3] font-bold text-sm sm:text-base flex items-center gap-2 shadow-sm transition-all transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
-              >
-                <Bot className="w-4 h-4 text-[#ac2356]" />
-                <span>Poser une question</span>
-              </button>
-            )}
 
             {/* Prominent Voice Greeting Button for Non-Readers */}
             <div className="w-full sm:w-auto pt-1 sm:pt-0">

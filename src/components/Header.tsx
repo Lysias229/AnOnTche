@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavigationTab, UserProfile } from '../types';
-import { ShieldCheck, Heart, User, CheckCircle2, Lock, Unlock, EyeOff, Bot } from 'lucide-react';
+import { ShieldCheck, Heart, User, CheckCircle2, Lock, Unlock, EyeOff } from 'lucide-react';
 import { AnOnTcheText } from './BreastOIcon';
 
 interface HeaderProps {
@@ -11,7 +11,6 @@ interface HeaderProps {
   onOpenAuthModal: () => void;
   onOpenProfileModal: () => void;
   onLockNow?: () => void;
-  onOpenChatbot?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -170,17 +169,7 @@ export const Header: React.FC<HeaderProps> = ({
                 <span>Mon Espace Privé</span>
               </button>
             )}
-
-            {onOpenChatbot && (
-              <button
-                onClick={onOpenChatbot}
-                className="flex items-center gap-1 px-3 py-1.5 rounded-full bg-gradient-to-r from-[#ffd9e0] to-[#fce7f3] hover:from-[#ffb1c2] hover:to-[#fbcfe8] text-[#8f0341] border border-[#fecdd3] text-xs font-bold transition-all cursor-pointer shadow-2xs"
-                title="Poser une question à AnOnTché Conseil"
-              >
-                <Bot className="w-3.5 h-3.5 text-[#ac2356]" />
-                <span className="hidden sm:inline">Conseil</span>
-              </button>
-            )}
+            
           </div>
         </div>
 
