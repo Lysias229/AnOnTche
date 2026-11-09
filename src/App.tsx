@@ -4,7 +4,6 @@ import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { HeroSection } from './components/HeroSection';
 import { CycleCalculatorSection } from './components/CycleCalculatorSection';
-import { PwaOfflineSection } from './components/PwaOfflineSection';
 import { PalpationStepsSection } from './components/PalpationStepsSection';
 import { WarningSignsSection } from './components/WarningSignsSection';
 import { CentersSection } from './components/CentersSection';
@@ -234,7 +233,7 @@ const handleOpenLegalModal = (tab: LegalTabType = 'confidentialite') => {
               logs={logs}
             />
 
-            <PwaOfflineSection />
+            
 
             <PalpationStepsSection
               onStartGuidedWalkthrough={() => setIsGuideModalOpen(true)}
